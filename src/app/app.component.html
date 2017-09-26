@@ -1,5 +1,7 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<!--The content below is only a placeholder and can be replaced. http://127.0.0.1:4200/ -->
+
+<!-- PRIMER EJERCICIO -->
+<!-- <div style="text-align:center">
   <h1>
     Bienvenido a {{title}}!
   </h1>
@@ -12,8 +14,35 @@
   <input type="text" placeholder="Tu apellido" [(ngModel)]="apellido" />
   <input type="text" placeholder="Tu edad" [(ngModel)]="edad" />
   <br>
-  <!-- Me llamo {{nombre + ' ' + apellido}} y tengo {{edad}} años. -->
+   Me llamo {{nombre + ' ' + apellido}} y tengo {{edad}} años.
    <p>Me llamo {{nombre}} {{apellido}}, tengo {{edad}} años.</p>
-</div>
+</div> -->
 
+<!-- SEGUNDO EJERCICIO -->
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<hr>
+<ul>
+  <ng-container *ngFor="let lugar of lugares">  
+    <li *ngIf="lugar.active">{{lugar.nombre}}</li>
+  </ng-container>
+</ul> 
 
+<ul>
+  <ng-container *ngFor="let lugar of lugares; let i=index" [ngSwitch]="lugar.cercania">  
+    <li [ngStyle]="{color: (lugar.active) ? 'black' : 'red'}" [ngClass]="{numero_par: (i+1) %2 !== 0}">
+      {{lugar.nombre}} -
+      <span *ngSwitchCase="1" [ngStyle]="{color: 'green'}">Muy cercano</span>
+      <span *ngSwitchCase="2" [ngStyle]="{color: 'black'}">cercano</span>
+      <span *ngSwitchCase="3" [ngStyle]="{color: 'red'}">lejano</span>
+    </li>
+  </ng-container>
+</ul> 
+
+<!-- EJERCICIO MAYORES DE 18 -->
+<!-- <ul>
+  <ng-container *ngFor="let persona of personas">  
+    <li *ngIf="persona.edad >= 18">{{persona.nombre}}</li>
+  </ng-container>
+</ul> -->
