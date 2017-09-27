@@ -5,7 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-
+export class AppComponent {
+}
 /* PRIMER EJERCICIO */
 /*export class AppComponent {
   title = 'PlatziSquare';
@@ -28,23 +29,7 @@ import { Component } from '@angular/core';
 }*/
 
 /* SEGUNDO EJERCICIO */
-export class AppComponent {
-  title = 'PlatziSquare';
-  lugares:any = [
-    {plan: "pagado", cercania: 1, distancia: 1, active:true, nombre:'Florería la gardemia'},
-    {plan: "gratuito", cercania: 1, distancia: 1.5, active:true, nombre:'Donas la pasadita'},
-    {plan: "pagado", cercania: 2, distancia: 5, active:true, nombre:'Veterinaria Huellitas felices'},
-    {plan: "gratuito", cercania: 3, distancia: 10, active:false, nombre:'Sushi Suhiroll'},
-    {plan: "pagado", cercania: 3, distancia: 35, active:true, nombre:'Hotel la Gracia'},
-    {plan: "gratuito", cercania: 3, distancia: 120, active:true, nombre:'Zapatería el Clavo'}
-  ];
 
-  lat:number= -12.0482677;
-  lng:number= -77.0453564;
-
-  constructor(){
-  }
-}
 
 /* EJERCICIO MAYORES DE 18 */
 /*export class AppComponent {
