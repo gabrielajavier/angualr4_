@@ -14,11 +14,10 @@ export class CrearComponent {
 	}
 	guardarLugar(){
 		var direccion = this.lugar.calle+','+this.lugar.ciudad+','+this.lugar.pais;
-		this.lugaresService.obtenerGeoData (direccion)
+		this.lugaresService.obtenerGeoData(direccion)
 			.subscribe((result) =>{
-				debugger;
-				this.lugar.lat = 0;
-				this.lugar.lng = 0;
+				this.lugar.lat = result.json().results[0].geometry.location.lat;
+				this.lugar.lng = result.json().results[0].geometry.location.lng;
 				this.lugar.id = Date.now();
 				this.lugaresService.guardarLugar(this.lugar);
 				alert('Negocio guardado con éxito!');
