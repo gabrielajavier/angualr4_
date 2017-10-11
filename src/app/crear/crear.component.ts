@@ -13,8 +13,8 @@ export class CrearComponent {
 		this.id = this.route.snapshot.params['id'];
 		if(this.id != 'new'){
 			this.lugaresService.getLugar(this.id)
-			.valueChanges().subscribe(lugar =>{
-	        console.log(lugar);
+			.valueChanges().subscribe((lugar) =>{
+	      	console.log(lugar);
 	        this.lugar = lugar;
     	});
 		}
@@ -22,7 +22,7 @@ export class CrearComponent {
 	guardarLugar(){
 		var direccion = this.lugar.calle+','+this.lugar.ciudad+','+this.lugar.pais;
 		this.lugaresService.obtenerGeoData(direccion)
-			.subscribe((result) =>{
+			.subscribe((result) => {
 				this.lugar.lat = result.json().results[0].geometry.location.lat;
 				this.lugar.lng = result.json().results[0].geometry.location.lng;
 				if(this.id != 'new'){
