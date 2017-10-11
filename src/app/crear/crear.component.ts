@@ -13,7 +13,7 @@ export class CrearComponent {
 		this.id = this.route.snapshot.params['id'];
 		if(this.id != 'new'){
 			this.lugaresService.getLugar(this.id)
-			.valueChanges().subscribe((lugar) =>{
+			.valueChanges().subscribe(lugar =>{
 	      	console.log(lugar);
 	        this.lugar = lugar;
     	});
@@ -25,13 +25,14 @@ export class CrearComponent {
 			.subscribe((result) => {
 				this.lugar.lat = result.json().results[0].geometry.location.lat;
 				this.lugar.lng = result.json().results[0].geometry.location.lng;
+				
 				if(this.id != 'new'){
 		            this.lugaresService.editarLugar(this.lugar);
-		            alert('Negocio editado con éxito!');
+		            alert('Negocio EDITADO con éxito!');
 		        }else{
 		            this.lugar.id = Date.now();
 		            this.lugaresService.guardarLugar(this.lugar);
-		            alert('Negocio guardado con éxito!');
+		            alert('Negocio GUARDADO con éxito!');
 		        }
 				this.lugar = {};
 			});
