@@ -17,9 +17,12 @@ export class LugaresComponent {
   lugares = null;
   constructor(private lugaresService: LugaresService){
     lugaresService.getLugares()
-      .valueChanges().subscribe(lugares =>{
+      /*.valueChanges()*/.subscribe(lugares =>{
         console.log(lugares);
-        this.lugares = lugares;
+        this.lugares = lugares.json();
+        var me = this;
+        me.lugares = Object.keys(me.lugares).map(function (key) { return me.lugares[key]; });
+        debugger;
       });
   }
 }
