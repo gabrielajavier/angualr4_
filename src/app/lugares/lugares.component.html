@@ -14,10 +14,13 @@
       <ul class="list-group">
         <ng-container *ngFor="let lugar of lugares">  
           <li class="list-group-item">
-          <a routerLink="/crear/{{lugar.id}}"><h3>{{lugar.nombre | uppercase}}</h3></a>
-          <small>Creado: {{lugar.id | date:'shortTime' | uppercase}}</small>
-          <br>
-          <p [innerHtml]="lugar.descripcion | Linkifystr"></p>
+            <!--Estrella destacado-->
+            <span class="glyphicon glyphicon-star pull-right star-icon" *ngIf="lugar.plan == 'pagado'"></span>
+
+            <a routerLink="/crear/{{lugar.id}}"><h3>{{lugar.nombre | uppercase}}</h3></a>
+            <small>Creado: {{lugar.id | date:'shortTime' | uppercase}}</small>
+            <br>
+            <p [innerHtml]="lugar.descripcion | Linkifystr"></p>
           </li>
         </ng-container>
       </ul> 
