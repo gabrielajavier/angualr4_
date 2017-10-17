@@ -2,3 +2,9 @@
 body{
 	font-family: 'Roboto', sans-serif;
 }
+
+#cuadrado{
+	width: 200px;
+	height: 200px;
+	background-color: red;
+}
