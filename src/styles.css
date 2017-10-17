@@ -8,3 +8,7 @@ body{
 	height: 200px;
 	background-color: red;
 }
+.espacio{
+	padding: 10px;
+	margin-bottom: 10px;
+}

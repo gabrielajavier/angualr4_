@@ -10,16 +10,12 @@ import {trigger, state, style, transition, animate} from "@angular/animations"
     trigger('contenedorAnimable', [
         state('inicial', style({
            opacity:0,
-           backgroundColor: 'green',
-           transform: 'rotate3d(0,0,0,0deg)'
         })),
         state('final', style({
            opacity:1,
-           backgroundColor: 'yellow',
-           transform: 'rotate3d(5,10,20,30deg)'
         })),
-        transition('inicial => final', animate(1000)),
-        transition('final => inicial', animate(500)),
+        transition('inicial => final', animate(2000)),
+        transition('final => inicial', animate(1000)),
       ])
   ]
 
@@ -28,7 +24,7 @@ import {trigger, state, style, transition, animate} from "@angular/animations"
 /* PROBANDO ROUTER */
 export class LugaresComponent {
   title = 'PlatziSquare';
-  state = 'final';
+  state = 'inicial';
 
   lat:number= -12.0482677;
   lng:number= -77.0453564;
@@ -36,9 +32,9 @@ export class LugaresComponent {
   animar(){
     this.state = (this.state === 'final') ? 'inicial' : 'final';
   }
-      animacionInicia(e){
-        console.log('Iniciado!');
-        console.log(e);
+    animacionInicia(e){
+      console.log('Iniciado!');
+      console.log(e);
     }
     animacionTermina(e){
         console.log('Terminado!');
@@ -51,6 +47,7 @@ export class LugaresComponent {
         this.lugares = lugares;
         var me = this;
         me.lugares = Object.keys(me.lugares).map(function (key) { return me.lugares[key]; });
+        this.state = 'final';
         
       }, error => {
         console.log (error);
