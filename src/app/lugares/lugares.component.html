@@ -10,12 +10,11 @@
       <br><br>
       <ul class="list-group">
         <ng-container *ngFor="let lugar of lugares">  
-          <a routerLink="/crear/{{lugar.id}}">{{lugar.nombre | uppercase}} </a>
           <li class="list-group-item">
-          <br>
+          <a routerLink="/crear/{{lugar.id}}"><h3>{{lugar.nombre | uppercase}}</h3></a>
           <small>Creado: {{lugar.id | date:'shortTime' | uppercase}}</small>
           <br>
-          {{'12345.29347837' | number: '1.2-2'}}
+          <p>{{lugar.descripcion}}</p>
           </li>
         </ng-container>
       </ul> 
