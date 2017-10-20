@@ -20,6 +20,7 @@ import { HttpModule} from '@angular/http';
 import { LinkifystrPipe} from './pipes/linkifystr.pipe';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
+import { AutorizacionService } from "./services/autorizacion.service";
 const appRoutes: Routes = [
  {path: '', component: LugaresComponent},
  {path: 'lugares', component: LugaresComponent},
@@ -62,7 +63,7 @@ export const firebaseConfig = {
     AngularFireAuthModule,
     HttpModule
   ],
-  providers: [LugaresService],
+  providers: [LugaresService, AutorizacionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
